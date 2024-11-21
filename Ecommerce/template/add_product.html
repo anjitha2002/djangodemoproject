@@ -1,0 +1,77 @@
+  {% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="breadcrumb-section breadcrumb-bg  " >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center ">
+					<div class="breadcrumb-text">
+
+						<h1>Add Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="container">
+<form method="POST" enctype="multipart/form-data" class="m-5 orange-text">
+  {% csrf_token %}
+<div class="mb-3">
+  <label  class="form-label "><strong>Product Name</strong></label>
+  <input type="text" class="form-control" name="N"  placeholder="Enter Product name">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Image</strong></label>
+  <input type="file" class="form-control" name="I">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Description</strong></label>
+  <textarea class="form-control" name="D" ></textarea>
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Price</strong></label>
+  <input type="number" class="form-control" name="P"  placeholder="Enter Price">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Stock</strong></label>
+  <input type="number" class="form-control" name="S" placeholder="Enter no:of Stock">
+</div>
+<!--  <div class="mb-3">-->
+<!--  <label  class="form-label"><strong>Available</strong></label>-->
+<!--  <input type="radio" class="form-control" name="A">-->
+<!--</div>-->
+
+  <div class="mb-3">
+      <label  class="form-label"><strong>Category</strong></label>
+
+    <div class="form-group mb-3">
+
+      <select class="custom-select " name="C">
+        {% for i in links %}
+        <option value="{{i.name}}">{{i.name}}</option>
+         {% endfor %}
+
+      </select>
+
+<!--  <label  class="form-label"><strong>Category</strong></label>-->
+<!--        {% for i in cat %}-->
+<!--  <input type="text" class="form-control" name="C">-->
+<!--       {% endfor %}-->
+    </div>
+
+</div>
+
+
+<!--  <div class="mb-3">-->
+<!--  <label  class="form-label"><strong>Created</strong></label>-->
+<!--  <input type="datetime-local" class="form-control" name="U">-->
+<!--</div>-->
+<div class="mb-3">
+    <button type="submit" class="btn btn-danger mb-3 form-control ">submit</button>
+  </div>
+  </form>
+    </div>
+
+  {% endblock %}

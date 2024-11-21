@@ -1,0 +1,51 @@
+  {% extends 'base.html' %}
+
+{% block content %}
+<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+
+						<h1>Billing Details</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="container">
+<form method="POST" enctype="multipart/form-data" class="m-5 orange-text">
+  {% csrf_token %}
+<div class="mb-3">
+  <label  class="form-label "><strong>Address</strong></label>
+	<textarea class="form-control" name="A"  placeholder="Type address"></textarea>
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Phone</strong></label>
+  <input type="number" class="form-control" name="P" placeholder="Enter Phoneno">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Pin</strong></label>
+  <input type="number" class="form-control" name="Pi" placeholder="Enter Pin number">
+</div>
+<!--<div class="mb-3">-->
+<!--  <label  class="form-label"><strong>Email</strong></label>-->
+<!--  <input type="email" class="form-control" name="E"  placeholder="Enter email">-->
+<!--</div>-->
+<!--<div class="mb-3">-->
+<!--  <label  class="form-label"><strong>First Name</strong></label>-->
+<!--  <input type="text" class="form-control" name="F" placeholder="Enter first name">-->
+<!--</div>-->
+<!--  <div class="mb-3">-->
+<!--  <label  class="form-label"><strong>Last Name</strong></label>-->
+<!--  <input type="text" class="form-control" name="L" placeholder="Enter first name">-->
+<!--</div>-->
+
+<div class="mb-3">
+    <button type="submit" class="btn btn-danger mb-3 form-control ">submit</button>
+  </div>
+  </form>
+    </div>
+
+  {% endblock %}
+

@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumb-section breadcrumb-bg  " >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center ">
+					<div class="breadcrumb-text">
+
+						<h1>Login</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="container">
+<form method="POST" class="m-5">
+  {% csrf_token %}
+<div class="mb-3">
+  <label  class="form-label">Username</label>
+  <input type="text" class="form-control" name="U"  placeholder="Enter Username">
+</div>
+<div class="mb-3">
+  <label  class="form-label">Password</label>
+  <input type="password" class="form-control" name="P" placeholder="Enter Password">
+</div>
+    <div class="mb-3">
+    <button type="submit" class="btn btn-danger mb-3 form-control ">submit</button>
+  </div>
+</form>
+</div>
+
+{% endblock %}

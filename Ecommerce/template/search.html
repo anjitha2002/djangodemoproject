@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+
+						<h1>Search Page</h1>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+ </div>
+{% if pro == None %}
+<form method="POST">
+	{% csrf_token %}
+	<center>
+		<div class="mb-3">
+			<input  type="text" name="q">
+			<input type="submit" class="btn ">
+
+		</div>
+	</center>
+</form>
+{% else %}
+
+<div class="row">
+
+				{% for i in pro %}
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="#"><img src="{{i.image.url}}" height="300px" width="100%" alt=""></a>
+
+							</div>
+						<h3>{{i.name}}</h3>
+
+
+						<p class="product-price"><span>Per Kg</span>{{i.price}} </p>
+                        <div class="mask-icon">
+								<a class="cart" href="{% url 'shop:detail' i.id %}">DETAILS</a>
+						</div>
+
+
+
+					</div>
+				</div>
+
+	{% empty %}
+	<h2 class="text-center">No result</h2>
+	{%  endfor %}
+
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

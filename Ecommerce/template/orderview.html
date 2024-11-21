@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+
+						<h1>Your Order</h1>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="container mt-150 mb-150">
+		<h4 class="text-center orange-text">Customer Name: {{user.username}}</h4>
+		<div class="container">
+
+
+				{% for i in orders %}
+			<div class="card mb-3 mx-auto border border-1 b0rder-danger ">
+				 <div  class="row g-0">
+				<div class="col-md-5">
+
+
+<!--					<div class="single-product-img">-->
+						<img src="{{i.product.image.url}}"  height='300px' width='100%' alt="">
+					</div>
+
+
+				<div class="col-md-7">
+					<div class="card-body">
+
+						<h3 class="card-title orange-text">Product Name :{{i.product.name}}</h3>
+
+						<p class="card-text">Price : {{i.product.price}}</p>
+						<p class="card-text">Number of items : {{i.no_of_items}}</p>
+						<p class="card-text">Order_id : {{i.order_id}}</p>
+						<p class="card-text">Ordered on : {{i.ordered_date}}</p>
+						<p class="card-text">Delivery Status : <span style="color:red">{{i.delivery_status}}</span></p>
+
+<!--                        <p>{{pro.desc}}</p>-->
+<!--						<div class="single-product-form">-->
+<!--&lt;!&ndash;							<form action="index.html">&ndash;&gt;-->
+<!--&lt;!&ndash;								<input type="number" placeholder="0">&ndash;&gt;-->
+<!--&lt;!&ndash;							</form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;							<p><strong>Category: </strong>{{pro.category}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <p><strong>Stock: </strong>{{pro.stock}}</p>&ndash;&gt;-->
+<!--							{% if user.is_superuser %}-->
+<!--							&lt;!&ndash;if user is admin&ndash;&gt;-->
+<!--							          {% if pro.stock > 0 %}-->
+
+<!--							                <p>Product in stock</p>-->
+<!--                                            <a href="{% url 'shop:addstock' pro.id %}" class="cart-btn"> Add Stock</a>-->
+<!--							          {% else %}-->
+<!--							                 <p class="text-danger">Product Out of Stock</p>-->
+<!--							                 <a href="{% url 'shop:addstock' pro.id %}" class="cart-btn">Add Stock</a>-->
+<!--							          {% endif %}-->
+<!--							{% else %}-->
+<!--                            &lt;!&ndash;if user is normal user&ndash;&gt;-->
+<!--							        {% if pro.stock > 0 %}-->
+<!--							           <a href="{% url 'cart:addtocart' pro.id %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+<!--							        {% else %}-->
+<!--							              <p class="text-danger">Product Out of Stock</p>-->
+<!--							        {% endif %}-->
+
+<!--							{% endif %}-->
+
+<!--						</div>-->
+
+					</div>
+				</div>
+				 </div>
+			</div>
+				{% endfor %}
+			</div>
+		</div>
+
+{% endblock %}

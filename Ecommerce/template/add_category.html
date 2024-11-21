@@ -1,0 +1,42 @@
+  {% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+  <div class="breadcrumb-section breadcrumb-bg  " >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center ">
+					<div class="breadcrumb-text">
+
+						<h1>Add Catagory</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="container">
+<form method="POST" enctype="multipart/form-data" class="m-5 orange-text">
+  {% csrf_token %}
+<div class="mb-3">
+  <label  class="form-label "><strong>Category Name</strong></label>
+  <input type="text" class="form-control" name="N"  placeholder="Enter category name">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Image</strong></label>
+  <input type="file" class="form-control" name="I">
+</div>
+<div class="mb-3">
+  <label  class="form-label"><strong>Description</strong></label>
+    <textarea class="form-control"  name="D"></textarea>
+</div>
+
+
+<div class="mb-3">
+    <button type="submit" class="btn btn-danger mb-3 form-control ">submit</button>
+  </div>
+  </form>
+    </div>
+  {% endblock %}

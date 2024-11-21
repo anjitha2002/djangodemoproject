@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>See more Details</p>
+						<h1>{{pro.name}}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- single product -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="single-product-img">
+						<img src="{{pro.image.url}}"  height='300px' width='100%' alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3 class="orange-text">{{pro.name}}</h3>
+
+						<p class="single-product-pricing">Price : {{pro.price}}/kg</p>
+                        <p>{{pro.desc}}</p>
+						<div class="single-product-form">
+<!--							<form action="index.html">-->
+<!--								<input type="number" placeholder="0">-->
+<!--							</form>-->
+
+							<p><strong>Category: </strong>{{pro.category}}</p>
+                          <p><strong>Stock: </strong>{{pro.stock}}</p>
+							{% if user.is_superuser %}
+							<!--if user is admin-->
+							          {% if pro.stock > 0 %}
+
+							                <p>Product in stock</p>
+                                            <a href="{% url 'shop:addstock' pro.id %}" class="cart-btn"> Add Stock</a>
+							          {% else %}
+							                 <p class="text-danger">Product Out of Stock</p>
+							                 <a href="{% url 'shop:addstock' pro.id %}" class="cart-btn">Add Stock</a>
+							          {% endif %}
+							{% else %}
+                            <!--if user is normal user-->
+							        {% if pro.stock > 0 %}
+							           <a href="{% url 'cart:addtocart' pro.id %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							        {% else %}
+							              <p class="text-danger">Product Out of Stock</p>
+							        {% endif %}
+
+							{% endif %}
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
