@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center">Add Movies</h3>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="mb-3">
+  <label class="form-label">Title</label>
+  <input type="text" class="form-control" name='T' placeholder="Title">
+</div>
+<div class="mb-3">
+  <label class="form-label">Description</label>
+  <textarea class="form-control"  rows="3" name="D" placeholder="Write your description"></textarea>
+</div>
+<div class="mb-3">
+  <label class="form-label">Language</label>
+  <input type="text" class="form-control" name='L' placeholder="Language">
+</div>
+<div class="mb-3">
+  <label class="form-label">Year</label>
+  <input type="number" class="form-control" name="Y" placeholder="year">
+</div>
+
+  <div class="mb-3">
+  <label  class="form-label">Image</label>
+  <input type="file" class="form-control" name="I" >
+</div>
+<div class="mb-3">
+    <button type="submit" class="btn btn-danger mb-3 form-control ">submit</button>
+  </div>
+  </form>
+{% endblock %}
+<!--<!DOCTYPE html>-->
+<!--{%  load static %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--     <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-light bg-light">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand">Online Movie store</a>-->
+<!--    <form class="d-flex">-->
+
+<!--      <a href="{% url 'addmovies' %}" class="btn btn-outline-success" >Add Movies</a>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</nav>-->
+<!--<h1 class="text-center">Movie List</h1>-->
+<!--</body>-->
+<!--</html>-->
